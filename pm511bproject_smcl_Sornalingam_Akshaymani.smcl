@@ -1,0 +1,787 @@
+{smcl}
+{txt}{sf}{ul off}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\sornalin\pm511bproject_smcl_Sornalingam_Akshaymani.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}10 Dec 2024, 18:03:49
+
+{com}. 
+. cd "C:\Users\sornalin\Downloads"
+{res}C:\Users\sornalin\Downloads
+
+{com}. 
+. use project_fall2023.dta, clear
+
+. 
+. keep if val==0
+{txt}(675 observations deleted)
+
+{com}. 
+. Q1
+{err}command {bf}Q1{sf} is unrecognized
+{txt}{search r(199), local:r(199);}
+
+{com}. 
+. table died, statistic(freq) statistic(percent)
+{res}
+{smcl}
+{reset}{...}
+{hline 17}{c -}{c TT}{c -}{c -}{hline 9}{c -}{c -}{c -}{hline 7}
+{space 17} {c |}  Frequency   Percent
+{hline 17}{c -}{c +}{c -}{c -}{hline 9}{c -}{c -}{c -}{hline 7}
+In-Hospital Death {c |}  {space 9}   {space 7}
+  0{space 14} {c |}  {space 4}{result:2,615}   {space 2}{result:93.76}
+  1{space 14} {c |}  {space 6}{result:174}   {space 3}{result:6.24}
+  Total{space 10} {c |}  {space 4}{result:2,789}   {space 1}{result:100.00}
+{hline 17}{c -}{c BT}{c -}{c -}{hline 9}{c -}{c -}{c -}{hline 7}
+
+{com}. 
+. tabstat age sbp rr gcs, by(died) stat(mean sd min max)
+
+{txt}Summary statistics: Mean, SD, Min, Max
+Group variable: died (In-Hospital Death)
+
+{ralign 8:died} {...}
+{c |}{...}
+       age       sbp        rr       gcs
+{hline 9}{c +}{hline 40}
+{ralign 8:0} {...}
+{c |}{...}
+ {res} 41.08413  133.9728  20.17897  14.13499
+{txt}{space 8} {...}
+{c |}{...}
+ {res} 17.40073  25.28805  6.337916  2.516613
+{txt}{space 8} {...}
+{c |}{...}
+ {res}       11        17         4         3
+{txt}{space 8} {...}
+{c |}{...}
+ {res}       96       242        99        15
+{txt}{hline 9}{c +}{hline 40}
+{ralign 8:1} {...}
+{c |}{...}
+ {res} 50.45402  127.7414   21.3046  8.942529
+{txt}{space 8} {...}
+{c |}{...}
+ {res} 20.78977  41.72102  9.463302  5.139345
+{txt}{space 8} {...}
+{c |}{...}
+ {res}       18         7         1         3
+{txt}{space 8} {...}
+{c |}{...}
+ {res}       96       241        90        15
+{txt}{hline 9}{c +}{hline 40}
+{ralign 8:Total} {...}
+{c |}{...}
+ {res}  41.6687  133.5841  20.24919  13.81104
+{txt}{space 8} {...}
+{c |}{...}
+ {res} 17.77205  26.64314  6.579767   3.02568
+{txt}{space 8} {...}
+{c |}{...}
+ {res}       11         7         1         3
+{txt}{space 8} {...}
+{c |}{...}
+ {res}       96       242        99        15
+{txt}{hline 9}{c BT}{hline 40}
+
+{com}. 
+. table died (male race), statistic(freq) statistic(percent)
+{res}
+{smcl}
+{reset}{...}
+{hline 17}{c -}{c TT}{c -}{c -}{hline 4}{c -}{c -}{c -}{hline 4}{c -}{c -}{c -}{hline 4}{c -}{c -}{c -}{hline 4}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 4}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 4}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 6}
+{space 17} {c |}  {space 54}male{space 54}
+{space 17} {c |}  {space 16}0{space 16}   {space 18}1{space 17}   {space 16}Total{space 16}
+{space 17} {c |}  {space 15}Race{space 14}   {space 16}Race{space 16}   {space 17}Race{space 16}
+{space 17} {c |}  {space 3}1   {space 3}2   {space 3}3   {space 3}4   Total   {space 3}1   {space 4}2   {space 4}3   {space 4}4   Total   {space 3}1   {space 4}2   {space 4}3   {space 4}4   {space 1}Total
+{hline 17}{c -}{c +}{c -}{c -}{hline 4}{c -}{c -}{c -}{hline 4}{c -}{c -}{c -}{hline 4}{c -}{c -}{c -}{hline 4}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 4}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 4}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 6}
+In-Hospital Death {c |}  {space 4}   {space 4}   {space 4}   {space 4}   {space 5}   {space 4}   {space 5}   {space 5}   {space 5}   {space 5}   {space 4}   {space 5}   {space 5}   {space 5}   {space 6}
+  0{space 14} {c |}  {space 4}   {space 4}   {space 4}   {space 4}   {space 5}   {space 4}   {space 5}   {space 5}   {space 5}   {space 5}   {space 4}   {space 5}   {space 5}   {space 5}   {space 6}
+    Frequency{space 4} {c |}  {space 2}{result:56}   {space 2}{result:95}   {space 1}{result:238}   {space 1}{result:228}   {space 2}{result:617}   {space 1}{result:109}   {space 2}{result:387}   {space 2}{result:680}   {space 2}{result:822}   {result:1,998}   {space 1}{result:165}   {space 2}{result:482}   {space 2}{result:918}   {result:1,050}   {space 1}{result:2,615}
+    Percent{space 6} {c |}  {result:2.01}   {result:3.41}   {result:8.53}   {result:8.17}   {result:22.12}   {result:3.91}   {result:13.88}   {result:24.38}   {result:29.47}   {result:71.64}   {result:5.92}   {result:17.28}   {result:32.92}   {result:37.65}   {space 1}{result:93.76}
+  1{space 14} {c |}  {space 4}   {space 4}   {space 4}   {space 4}   {space 5}   {space 4}   {space 5}   {space 5}   {space 5}   {space 5}   {space 4}   {space 5}   {space 5}   {space 5}   {space 6}
+    Frequency{space 4} {c |}  {space 3}{result:6}   {space 3}{result:4}   {space 2}{result:13}   {space 2}{result:14}   {space 3}{result:37}   {space 2}{result:14}   {space 3}{result:27}   {space 3}{result:52}   {space 3}{result:44}   {space 2}{result:137}   {space 2}{result:20}   {space 3}{result:31}   {space 3}{result:65}   {space 3}{result:58}   {space 3}{result:174}
+    Percent{space 6} {c |}  {result:0.22}   {result:0.14}   {result:0.47}   {result:0.50}   {space 1}{result:1.33}   {result:0.50}   {space 1}{result:0.97}   {space 1}{result:1.86}   {space 1}{result:1.58}   {space 1}{result:4.91}   {result:0.72}   {space 1}{result:1.11}   {space 1}{result:2.33}   {space 1}{result:2.08}   {space 2}{result:6.24}
+  Total{space 10} {c |}  {space 4}   {space 4}   {space 4}   {space 4}   {space 5}   {space 4}   {space 5}   {space 5}   {space 5}   {space 5}   {space 4}   {space 5}   {space 5}   {space 5}   {space 6}
+    Frequency{space 4} {c |}  {space 2}{result:62}   {space 2}{result:99}   {space 1}{result:251}   {space 1}{result:242}   {space 2}{result:654}   {space 1}{result:123}   {space 2}{result:414}   {space 2}{result:732}   {space 2}{result:866}   {result:2,135}   {space 1}{result:185}   {space 2}{result:513}   {space 2}{result:983}   {result:1,108}   {space 1}{result:2,789}
+    Percent{space 6} {c |}  {result:2.22}   {result:3.55}   {result:9.00}   {result:8.68}   {result:23.45}   {result:4.41}   {result:14.84}   {result:26.25}   {result:31.05}   {result:76.55}   {result:6.63}   {result:18.39}   {result:35.25}   {result:39.73}   {result:100.00}
+{hline 17}{c -}{c BT}{c -}{c -}{hline 4}{c -}{c -}{c -}{hline 4}{c -}{c -}{c -}{hline 4}{c -}{c -}{c -}{hline 4}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 4}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 4}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 5}{c -}{c -}{c -}{hline 6}
+
+{com}. 
+. 
+. 
+. Q2
+{err}command {bf}Q2{sf} is unrecognized
+{txt}{search r(199), local:r(199);}
+
+{com}. 
+. -Lowess Smoothing
+{bf}{err}-{sf} is not a valid command name
+{txt}{search r(199), local:r(199);}
+
+{com}. 
+. lowess died sbp,logit
+{res}
+{com}. 
+. lowess died gcs,logit
+{res}
+{com}. 
+. lowess died rr,logit
+{res}
+{com}. 
+. lowess died age,logit
+{res}
+{com}. 
+. 
+. 
+. gen prod_sbp_rr= sbp * rr
+
+. 
+. gen prod_sbp_gcs= sbp * gcs
+
+. 
+. gen prod_rr_gcs= rr * gcs
+
+. 
+. gen prod_age_gcs= age * gcs
+
+. 
+. gen prod_age_rr= age * rr
+
+. 
+. gen prod_age_sbp= age * sbp
+
+. 
+. 
+. 
+. lowess died prod_sbp_rr,logit
+{res}
+{com}. 
+. lowess died prod_sbp_gcs,logit
+{res}
+{com}. 
+. lowess died prod_rr_gcs,logit
+{res}
+{com}. 
+. lowess died prod_age_gcs,logit
+{res}
+{com}. 
+. lowess died prod_age_rr,logit
+{res}
+{com}. 
+. lowess died prod_age_sbp,logit
+{res}
+{com}. 
+. 
+. 
+. 
+. 
+. -Frac Poly for the non linear variable
+{bf}{err}-{sf} is not a valid command name
+{txt}{search r(199), local:r(199);}
+
+{com}. 
+. mfp: logit died age
+{res}
+{txt}Deviance for model with all terms untransformed = {res}1260.839{txt}, {res}2789{txt} observations
+
+Variable{col 14}Model{col 20}(vs.){col 28}Deviance{col 38}Dev diff.   P      Powers   (vs.)
+{hline 70}
+age{col 14}Lin.{col 21}FP2{col 26}{res}  1260.839{col 38}   2.797  0.424 {col 57}1{col 67}0 0
+{txt}{col 14}Final{col 28}{res}1260.839{col 57}1
+
+
+{txt}Transformations of covariates:
+
+-> gen double Iage__1 = age-41.66869846 if e(sample) 
+
+Final multivariable fractional polynomial model for died
+{hline 13}{c TT}{hline 54}
+    Variable {c |}{col 19}{hline 5}{col 24}Initial{col 31}{hline 5}{col 46}{hline 5}{col 51}Final{col 56}{hline 5}
+{col 14}{c |}   df  {col 25}Select{col 34}Alpha{col 43}Status{col 51}  df  {col 59}Powers
+{hline 13}{c +}{hline 54}
+         age {c |}{res}{col 19}4{col 24} 1.0000{col 33} 0.0500{col 45}in{col 53}1{col 59}1
+{txt}{hline 13}{c BT}{hline 54}
+
+{col 1}Logistic regression{col 57}{lalign 13:Number of obs}{col 70} = {res}{ralign 6:2,789}
+{txt}{col 57}{lalign 13:LR chi2({res:1})}{col 70} = {res}{ralign 6:41.56}
+{txt}{col 57}{lalign 13:Prob > chi2}{col 70} = {res}{ralign 6:0.0000}
+{txt}{col 1}{lalign 14:Log likelihood}{col 15} = {res}{ralign 10:-630.41939}{txt}{col 57}{lalign 13:Pseudo R2}{col 70} = {res}{ralign 6:0.0319}
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        died{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}Iage__1 {c |}{col 14}{res}{space 2} .0263506{col 26}{space 2} .0040063{col 37}{space 1}    6.58{col 46}{space 3}0.000{col 54}{space 4} .0184983{col 67}{space 3} .0342029
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-2.812548{col 26}{space 2} .0851536{col 37}{space 1}  -33.03{col 46}{space 3}0.000{col 54}{space 4}-2.979446{col 67}{space 3} -2.64565
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+Deviance = {res}1260.839{txt}.
+
+{com}. 
+. mfp: logit died gcs
+{res}
+{txt}Deviance for model with all terms untransformed = {res}1029.865{txt}, {res}2789{txt} observations
+
+Variable{col 14}Model{col 20}(vs.){col 28}Deviance{col 38}Dev diff.   P      Powers   (vs.)
+{hline 70}
+gcs{col 14}Lin.{col 21}FP2{col 26}{res}  1029.865{col 38}  16.899  0.001+{col 57}1{col 67}-2 3
+{txt}{col 14}FP1{col 21}{col 26}{res}  1014.409{col 38}   1.443  0.486 {col 57}3{col 67}
+{txt}{col 14}Final{col 28}{res}1014.409{col 57}3
+
+
+{txt}Transformations of covariates:
+
+-> gen double Igcs__1 = X^3-2.634386357 if e(sample) 
+   (where: X = gcs/10)
+
+Final multivariable fractional polynomial model for died
+{hline 13}{c TT}{hline 54}
+    Variable {c |}{col 19}{hline 5}{col 24}Initial{col 31}{hline 5}{col 46}{hline 5}{col 51}Final{col 56}{hline 5}
+{col 14}{c |}   df  {col 25}Select{col 34}Alpha{col 43}Status{col 51}  df  {col 59}Powers
+{hline 13}{c +}{hline 54}
+         gcs {c |}{res}{col 19}4{col 24} 1.0000{col 33} 0.0500{col 45}in{col 53}2{col 59}3
+{txt}{hline 13}{c BT}{hline 54}
+
+{col 1}Logistic regression{col 57}{lalign 13:Number of obs}{col 70} = {res}{ralign 6:2,789}
+{txt}{col 57}{lalign 13:LR chi2({res:1})}{col 70} = {res}{ralign 6:287.99}
+{txt}{col 57}{lalign 13:Prob > chi2}{col 70} = {res}{ralign 6:0.0000}
+{txt}{col 1}{lalign 14:Log likelihood}{col 15} = {res}{ralign 10:-507.20427}{txt}{col 57}{lalign 13:Pseudo R2}{col 70} = {res}{ralign 6:0.2211}
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        died{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}Igcs__1 {c |}{col 14}{res}{space 2}-.9903013{col 26}{space 2} .0585832{col 37}{space 1}  -16.90{col 46}{space 3}0.000{col 54}{space 4}-1.105122{col 67}{space 3}-.8754803
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-2.976281{col 26}{space 2} .1014868{col 37}{space 1}  -29.33{col 46}{space 3}0.000{col 54}{space 4}-3.175192{col 67}{space 3}-2.777371
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+Deviance = {res}1014.409{txt}.
+
+{com}. 
+. mfp: logit died rr
+{res}
+{txt}Deviance for model with all terms untransformed = {res}1298.418{txt}, {res}2789{txt} observations
+
+Variable{col 14}Model{col 20}(vs.){col 28}Deviance{col 38}Dev diff.   P      Powers   (vs.)
+{hline 70}
+rr{col 14}Lin.{col 21}FP2{col 26}{res}  1298.418{col 38}  39.690  0.000+{col 57}1{col 67}-.5 -.5
+{txt}{col 14}FP1{col 21}{col 26}{res}  1280.751{col 38}  22.023  0.000+{col 57}-2{col 67}
+{txt}{col 14}Final{col 28}{res}1258.728{col 57}-.5 -.5
+
+
+{txt}Transformations of covariates:
+
+-> gen double Irr__1 = X^-.5-.7027423674 if e(sample) 
+-> gen double Irr__2 = X^-.5*ln(X)-.4958057246 if e(sample) 
+   (where: X = rr/10)
+
+Final multivariable fractional polynomial model for died
+{hline 13}{c TT}{hline 55}
+    Variable {c |}{col 19}{hline 5}{col 24}Initial{col 31}{hline 5}{col 46}{hline 5}{col 51}Final{col 56}{hline 5}
+{col 14}{c |}   df  {col 25}Select{col 34}Alpha{col 43}Status{col 51}  df  {col 59}Powers
+{hline 13}{c +}{hline 55}
+          rr {c |}{res}{col 19}4{col 24} 1.0000{col 33} 0.0500{col 45}in{col 53}4{col 59}-.5 -.5
+{txt}{hline 13}{c BT}{hline 55}
+
+{col 1}Logistic regression{col 57}{lalign 13:Number of obs}{col 70} = {res}{ralign 6:2,789}
+{txt}{col 57}{lalign 13:LR chi2({res:2})}{col 70} = {res}{ralign 6:43.67}
+{txt}{col 57}{lalign 13:Prob > chi2}{col 70} = {res}{ralign 6:0.0000}
+{txt}{col 1}{lalign 14:Log likelihood}{col 15} = {res}{ralign 10:-629.36398}{txt}{col 57}{lalign 13:Pseudo R2}{col 70} = {res}{ralign 6:0.0335}
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        died{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}Irr__1 {c |}{col 14}{res}{space 2}-11.86179{col 26}{space 2} 2.080324{col 37}{space 1}   -5.70{col 46}{space 3}0.000{col 54}{space 4}-15.93915{col 67}{space 3}-7.784433
+{txt}{space 6}Irr__2 {c |}{col 14}{res}{space 2}-7.918804{col 26}{space 2} 1.310974{col 37}{space 1}   -6.04{col 46}{space 3}0.000{col 54}{space 4}-10.48827{col 67}{space 3}-5.349342
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-2.842558{col 26}{space 2}  .084418{col 37}{space 1}  -33.67{col 46}{space 3}0.000{col 54}{space 4}-3.008014{col 67}{space 3}-2.677102
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 6 2}Note: 0 failures and 2 successes completely determined.{p_end}
+Deviance = {res}1258.728{txt}.
+
+{com}. 
+. mfp: logit died sbp
+{res}
+{txt}Deviance for model with all terms untransformed = {res}1293.485{txt}, {res}2789{txt} observations
+
+Variable{col 14}Model{col 20}(vs.){col 28}Deviance{col 38}Dev diff.   P      Powers   (vs.)
+{hline 70}
+{err}{hline 2}Break{hline 2}
+{txt}{search r(1), local:r(1);}
+
+{com}. 
+. mfp: logit died prod_age_gcs
+{res}
+{txt}Deviance for model with all terms untransformed = {res}1275.994{txt}, {res}2789{txt} observations
+
+Variable{col 14}Model{col 20}(vs.){col 28}Deviance{col 38}Dev diff.   P      Powers   (vs.)
+{hline 70}
+prod_age_gcs{col 14}Lin.{col 21}FP2{col 26}{res}  1275.994{col 38} 122.674  0.000+{col 57}1{col 67}.5 .5
+{txt}{col 14}FP1{col 21}{col 26}{res}  1184.446{col 38}  31.126  0.000+{col 57}-1{col 67}
+{txt}{col 14}Final{col 28}{res}1153.320{col 57}.5 .5
+
+
+{txt}Transformations of covariates:
+
+-> gen double Iprod__1 = X^.5-.7578448335 if e(sample) 
+-> gen double Iprod__2 = X^.5*ln(X)+.420265307 if e(sample) 
+   (where: X = prod_age_gcs/1000)
+
+Final multivariable fractional polynomial model for died
+{hline 13}{c TT}{hline 54}
+    Variable {c |}{col 19}{hline 5}{col 24}Initial{col 31}{hline 5}{col 46}{hline 5}{col 51}Final{col 56}{hline 5}
+{col 14}{c |}   df  {col 25}Select{col 34}Alpha{col 43}Status{col 51}  df  {col 59}Powers
+{hline 13}{c +}{hline 54}
+prod_age_... {c |}{res}{col 19}4{col 24} 1.0000{col 33} 0.0500{col 45}in{col 53}4{col 59}.5 .5
+{txt}{hline 13}{c BT}{hline 54}
+
+{col 1}Logistic regression{col 57}{lalign 13:Number of obs}{col 70} = {res}{ralign 6:2,789}
+{txt}{col 57}{lalign 13:LR chi2({res:2})}{col 70} = {res}{ralign 6:149.08}
+{txt}{col 57}{lalign 13:Prob > chi2}{col 70} = {res}{ralign 6:0.0000}
+{txt}{col 1}{lalign 14:Log likelihood}{col 15} = {res}{ralign 10:-576.65993}{txt}{col 57}{lalign 13:Pseudo R2}{col 70} = {res}{ralign 6:0.1145}
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        died{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}Iprod__1 {c |}{col 14}{res}{space 2}-12.31855{col 26}{space 2} 1.010606{col 37}{space 1}  -12.19{col 46}{space 3}0.000{col 54}{space 4} -14.2993{col 67}{space 3} -10.3378
+{txt}{space 4}Iprod__2 {c |}{col 14}{res}{space 2} 8.368123{col 26}{space 2} .8219352{col 37}{space 1}   10.18{col 46}{space 3}0.000{col 54}{space 4}  6.75716{col 67}{space 3} 9.979086
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-3.369659{col 26}{space 2} .1095586{col 37}{space 1}  -30.76{col 46}{space 3}0.000{col 54}{space 4} -3.58439{col 67}{space 3}-3.154929
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+Deviance = {res}1153.320{txt}.
+
+{com}. 
+. mfp: logit died prod_age_rr
+{res}
+{txt}Deviance for model with all terms untransformed = {res}1265.694{txt}, {res}2789{txt} observations
+
+Variable{col 14}Model{col 20}(vs.){col 28}Deviance{col 38}Dev diff.   P      Powers   (vs.)
+{hline 70}
+{err}{hline 2}Break{hline 2}
+{txt}{search r(1), local:r(1);}
+
+{com}. 
+. mfp: logit died prod_age_sbp
+{res}
+{txt}Deviance for model with all terms untransformed = {res}1282.751{txt}, {res}2789{txt} observations
+
+Variable{col 14}Model{col 20}(vs.){col 28}Deviance{col 38}Dev diff.   P      Powers   (vs.)
+{hline 70}
+{err}{hline 2}Break{hline 2}
+{txt}{search r(1), local:r(1);}
+
+{com}. 
+. mfp: logit died prod_sbp_gcs
+{res}
+{txt}Deviance for model with all terms untransformed = {res}1043.115{txt}, {res}2789{txt} observations
+
+Variable{col 14}Model{col 20}(vs.){col 28}Deviance{col 38}Dev diff.   P      Powers   (vs.)
+{hline 70}
+{err}{hline 2}Break{hline 2}
+{txt}{search r(1), local:r(1);}
+
+{com}. 
+. mfp: logit died prod_rr_gcs
+{res}
+{txt}Deviance for model with all terms untransformed = {res}1178.181{txt}, {res}2789{txt} observations
+
+Variable{col 14}Model{col 20}(vs.){col 28}Deviance{col 38}Dev diff.   P      Powers   (vs.)
+{hline 70}
+{err}{hline 2}Break{hline 2}
+{txt}{search r(1), local:r(1);}
+
+{com}. 
+. mfp: logit died prod_sbp_rr
+{res}{err}{hline 2}Break{hline 2}
+{txt}{search r(1), local:r(1);}
+
+{com}. 
+. 
+. 
+. -Modification
+{bf}{err}-{sf} is not a valid command name
+{txt}{search r(199), local:r(199);}
+
+{com}. 
+. gen mod_gcs = (gcs/10)^3
+{err}{hline 2}Break{hline 2}
+{txt}{search r(1), local:r(1);}
+
+{com}. 
+. gen mod_rr_1 = (rr/10)^-0.5
+
+. 
+. gen mod_rr_2 = (rr/10)^-0.5 * ln(rr/10)
+
+. 
+. gen mod_sbp_1 = (sbp/100)^2 
+
+. 
+. gen mod_sbp_2 = (sbp/100)^2 * ln(sbp/100)
+
+. 
+. 
+. 
+. gen mod_age_rr_1= ((age*rr)/1000)^-0.5
+
+. 
+. gen mod_age_rr_2= ((age*rr)/1000)^-0.5 * ln((age*rr)/1000)
+
+. 
+. gen mod_age_sbp_1= (age*sbp)/10000
+
+. 
+. gen mod_age_sbp_2= ((age*sbp)/10000)^ 0.5
+
+. 
+. gen mod_rr_gcs_1= (rr*gcs)^0.5
+
+. 
+. gen mod_rr_gcs_2= (rr*gcs)^0.5 *ln(rr*gcs)
+
+. 
+. gen mod_age_gcs_1 = ((age*gcs)/1000)^0.5
+
+. 
+. gen mod_age_gcs_2 = ((age*gcs)/1000)^0.5 * ln((age*gcs)/1000)
+
+. 
+. gen mod_sbp_rr_1 = ((sbp*rr)/10000)^-0.5 * ln(sbp*rr)/10000
+
+. 
+. 
+. 
+. -Model
+{bf}{err}-{sf} is not a valid command name
+{txt}{search r(199), local:r(199);}
+
+{com}. 
+. logit died age race male mod_rr_1 mod_rr_2 mod_gcs mod_sbp_1 mod_sbp_2
+{err}variable {bf}mod_gcs{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. est store full_gen
+
+. 
+. logit died age male mod_rr_1 mod_rr_2 mod_gcs mod_sbp_1 mod_sbp_2
+{err}variable {bf}mod_gcs{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. lrtest full_gen
+{err}models {bf:full_gen} specified more than once
+{txt}{search r(198), local:r(198);}
+
+{com}. 
+. 
+. 
+. logit died c.age##i.male c.mod_rr_1##i.male c.mod_rr_2##i.male c.mod_gcs##i.male c.mod_sbp_1##i.male c.mod_sbp_2##i.male
+{err}variable {bf}mod_gcs{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. estat ic
+
+{txt}Akaike's information criterion and Bayesian information criterion
+
+{hline 13}{c TT}{hline 63}
+       Model {c |}          N   ll(null)  ll(model)      df        AIC        BIC
+{hline 13}{c +}{hline 63}
+{ralign 12:{stata estimates replay full_gen:full_gen}}{col 14}{c |}{res}{col 16}     2,789{col 28}-651.1984{col 39}-600.0324{col 50}     2{col 58} 1204.065{col 69} 1215.932
+{txt}{hline 13}{c BT}{hline 63}
+{p 0 6 0 77}Note: BIC uses N = number of observations. See {helpb bic_note:{bind:[R] IC note}}.{p_end}
+
+{com}. 
+. 
+. 
+. logit died age male mod_rr_1 mod_rr_2 mod_gcs mod_sbp_1 mod_sbp_2 mod_age_rr_1 mod_age_rr_2 mod_age_sbp_1 mod_age_sbp_2 mod_rr_gcs_1  mod_rr_gcs_2  mod_age_gcs_1  mod_age_gcs_2 mod_sbp_rr_1
+{err}variable {bf}mod_gcs{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. est store full_interaction
+
+. 
+. logit died age male mod_rr_1 mod_rr_2 mod_gcs mod_sbp_1 mod_sbp_2 mod_age_rr_1 mod_age_rr_2 mod_age_sbp_1 mod_age_sbp_2 mod_sbp_rr_1
+{err}variable {bf}mod_gcs{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. lrtest full_interaction
+{err}models {bf:full_interaction} specified more than once
+{txt}{search r(198), local:r(198);}
+
+{com}. 
+. estat ic
+
+{txt}Akaike's information criterion and Bayesian information criterion
+
+{hline 13}{c TT}{hline 63}
+       Model {c |}          N   ll(null)  ll(model)      df        AIC        BIC
+{hline 13}{c +}{hline 63}
+{ralign 12:{stata estimates replay full_interaction:full_inter~n}}{col 14}{c |}{res}{col 16}     2,789{col 28}-651.1984{col 39}-600.0324{col 50}     2{col 58} 1204.065{col 69} 1215.932
+{txt}{hline 13}{c BT}{hline 63}
+{p 0 6 0 77}Note: BIC uses N = number of observations. See {helpb bic_note:{bind:[R] IC note}}.{p_end}
+
+{com}. 
+. 
+. 
+. 
+. 
+. 
+. 
+. - DO PEARSON GOF TEST TO CHECK NUMBER OF OBS VS COVARIATE PATTERNS - IF NOT SAME STOP OVER THERE 
+{bf}{err}-{sf} is not a valid command name
+{txt}{search r(199), local:r(199);}
+
+{com}. 
+. estat gof
+{err}variable {bf}__00000F{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. - IF THE NUMBER OF COVARIATE PATTERNS AND NUMBER OF OBS ARE SAME /SIMILAR DO HOSMER LEMESHOW TEST
+{bf}{err}-{sf} is not a valid command name
+{txt}{search r(199), local:r(199);}
+
+{com}. 
+. estat gof, group(20) table
+{err}variable {bf}__00000F{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. 
+. 
+. Q4
+{err}command {bf}Q4{sf} is unrecognized
+{txt}{search r(199), local:r(199);}
+
+{com}. 
+. 
+. 
+. - INFLUENCE (3 PLOTS)
+{bf}{err}-{sf} is not a valid command name
+{txt}{search r(199), local:r(199);}
+
+{com}. 
+. 
+. 
+. predict prob
+{txt}(option {bf:pr} assumed; Pr(died))
+{err}variable {bf}__00000F{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. predict delta_x2, dx2
+{err}variable {bf}__00000F{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. predict dbeta, dbeta
+{err}variable {bf}__00000F{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. predict delta_dev, ddeviance
+{err}variable {bf}__00000F{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. 
+. 
+. scatter delta_x2 prob 
+{err}variable {bf}delta_x2{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. scatter dbeta prob 
+{err}variable {bf}dbeta{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. scatter delta_dev prob
+{err}variable {bf}delta_dev{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. 
+. 
+. Re-fit model
+{err}command {bf}Re{sf} is unrecognized
+{txt}{search r(199), local:r(199);}
+
+{com}. 
+. gen exclude_dx2=(delta_x2 > 10)
+{err}delta_x2 not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. gen exclude_dbeta= (debta>1)
+{err}debta not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. gen exclude_ddev= (delta_dev > 4)
+{err}delta_dev not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. logit died age male mod_rr_1 mod_rr_2 mod_gcs mod_sbp_1 mod_sbp_2 mod_age_rr_1 mod_age_rr_2 mod_age_sbp_1 mod_age_sbp_2 mod_sbp_rr_1 if exclude_dx2 == 0 & exclude_debta == 0 & exclude_ddev == 0
+{err}exclude_dx2 not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. estat gof, group (20)
+{err}variable {bf}__00000F{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+.  
+. 
+. 
+. 
+. Q7
+{err}command {bf}Q7{sf} is unrecognized
+{txt}{search r(199), local:r(199);}
+
+{com}. 
+. predict prob_p_val0, pr
+{err}variable {bf}__00000F{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. roctab died prob_p_val0
+{err}variable {bf}prob_p_val0{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. lroc, title("ROC Curve for Model with val=0") 
+{err}variable {bf}__00000F{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. estat classification
+{err}variable {bf}__00000F{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. 
+. 
+. Q8
+{err}command {bf}Q8{sf} is unrecognized
+{txt}{search r(199), local:r(199);}
+
+{com}. 
+. use project_fall2023.dta, clear
+
+. 
+. keep if val==1
+{txt}(2,789 observations deleted)
+
+{com}. 
+. logit died age male mod_rr_1 mod_rr_2 mod_gcs mod_sbp_1 mod_sbp_2 mod_age_rr_1 mod_age_rr_2 mod_age_sbp_1 mod_age_sbp_2 mod_sbp_rr_1
+{err}variable {bf}mod_rr_1{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. estat gof, group (20)
+{err}variable {bf}__00000F{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. predict prob_p_val1, pr
+{err}variable {bf}__00000F{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. roctab died prob_p_val1
+{err}variable {bf}prob_p_val1{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. estat classification
+{err}variable {bf}__00000F{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. 
+. 
+. 
+. 
+. 
+. 
+. Q10
+{err}command {bf}Q10{sf} is unrecognized
+{txt}{search r(199), local:r(199);}
+
+{com}. 
+. use project_fall2023.dta, clear
+
+. 
+. keep if val==0
+{txt}(675 observations deleted)
+
+{com}. 
+. 
+. 
+. logit died age male asaps mod_rr_1 mod_rr_2 mod_gcs mod_sbp_1 mod_sbp_2 mod_age_rr_1 mod_age_rr_2 mod_age_sbp_1 mod_age_sbp_2 mod_sbp_rr_1
+{err}variable {bf}mod_rr_1{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. est store full_asaps
+
+. 
+. predict prob_p_asaps, pr
+{err}variable {bf}__00000F{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. roctab died prob_p
+{err}variable {bf}prob_p{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. estat classification
+{err}variable {bf}__00000F{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. estat gof, group(10) table
+{err}variable {bf}__00000F{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. 
+. 
+. logit died age male mod_rr_1 mod_rr_2 mod_gcs mod_sbp_1 mod_sbp_2 mod_age_rr_1 mod_age_rr_2 mod_age_sbp_1 mod_age_sbp_2 mod_sbp_rr_1
+{err}variable {bf}mod_rr_1{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. lrtest full_asaps
+{err}models {bf:full_asaps} specified more than once
+{txt}{search r(198), local:r(198);}
+
+{com}. 
+. predict prob_p_org, pr
+{err}variable {bf}__00000F{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. 
+. 
+. 
+. 
+. roccomp died prob_p_org prob_p_asaps
+{err}variable {bf}prob_p_org{sf} not found
+{txt}{search r(111), local:r(111);}
+
+{com}. 
+. 
+. 
+. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\sornalin\pm511bproject_smcl_Sornalingam_Akshaymani.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}10 Dec 2024, 18:04:20
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
