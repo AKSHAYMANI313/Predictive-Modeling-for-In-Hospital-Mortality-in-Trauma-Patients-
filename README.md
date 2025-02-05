@@ -1,5 +1,5 @@
 # Predictive-Modeling-for-In-Hospital-Mortality-in-Trauma-Patients-
-This repository showcases the development of a multivariate logistic regression model using both categorical and continuous predictors to predict a health-related outcome. The model was built using STATA and fine-tuned through various preprocessing, diagnostic, and optimization techniques.
+This repository showcases the development of a multivariate logistic regression model using both categorical and continuous predictors to predict a health-related outcome. The model was built using STATA & R and fine-tuned through various preprocessing, diagnostic, and optimization techniques.
 
 Key steps in the project:
 
