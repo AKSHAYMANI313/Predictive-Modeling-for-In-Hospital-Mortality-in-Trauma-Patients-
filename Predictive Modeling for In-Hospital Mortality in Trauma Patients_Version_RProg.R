@@ -72,17 +72,27 @@ mortality <- mortality %>%
     prod_asaps_sbp = asaps * sbp
   )
 
-# Logistic Regression Model with Main Effects and asaps
-model_asaps <- glm(died ~ age + sbp + rr + gcs + asaps + 
+# Model 1: Basic Logistic Regression Model (Initial Model)
+model <- glm(died ~ age + sbp + rr + gcs, data = mortality, family = binomial)
+
+# Model 2: Extended Model (Adding Interaction Terms)
+model_extended <- glm(died ~ age + sbp + rr + gcs + asaps +
+                      prod_sbp_rr + prod_sbp_gcs + prod_rr_gcs + prod_age_gcs, 
+                      data = mortality, family = binomial)
+
+# Model 3: Refitted Model (Removing Insignificant Predictors)
+model_refit <- glm(died ~ age + sbp + rr + gcs + asaps + 
+                   prod_age_rr + prod_sbp_gcs, 
+                   data = mortality, family = binomial)
+
+# Model 4: Optimized Model with Physical Fitness Variable
+model_asaps <- glm(died ~ age + sbp + rr + gcs + asaps + physical_fitness + 
                    prod_age_rr + prod_sbp_gcs + prod_asaps_age + prod_asaps_rr + prod_asaps_sbp,
                    data = mortality, family = binomial)
+
 summary(model_asaps)
 
 # Model Fit Statistics
-AIC(model_asaps)
-BIC(model_asaps)
-
-# Model Comparison with Previous Models
 AIC(model, model_extended, model_refit, model_asaps)
 BIC(model, model_extended, model_refit, model_asaps)
 
